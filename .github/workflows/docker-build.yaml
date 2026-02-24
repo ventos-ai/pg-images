@@ -10,8 +10,6 @@ env:
   REGISTRY: "ghcr.io"
   REGISTRY_IMAGE: ghcr.io/${{ github.repository_owner }}/${{ github.repository }}
   PG_VERSION: "18.2"
-  PG_VECTOR_VERSION: "0.8.1"
-  PG_PARTMAN_VERSION: "5.2.4"
 
 permissions:
   contents: read
@@ -52,8 +50,6 @@ jobs:
           tags: ${{ env.REGISTRY_IMAGE }}
           build-args: |
             PG_VERSION=${{ env.PG_VERSION }}
-            PG_VECTOR_VERSION=${{ env.PG_VECTOR_VERSION }}
-            PG_PARTMAN_VERSION=${{ env.PG_PARTMAN_VERSION }}
           outputs: type=image,push-by-digest=true,name-canonical=true,push=true
 
       - name: Export digest
